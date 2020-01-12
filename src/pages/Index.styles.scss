@@ -1,0 +1,96 @@
+$brand-color: #663399;
+
+.index-main {
+    background: url('../images/main-banner-gradient.jpg');
+    height: calc(100vh - 100px);
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    margin-top: -100px;
+    padding-top: 100px;
+
+    display: flex;
+    flex-direction: row;
+}
+
+.index-right, .index-left {
+    width: 50%;
+    padding: 6rem;
+}
+
+.index-left {
+    margin-top: 2rem;
+}
+
+.hello-text {
+    background-color: #fff;
+    color: $brand-color;
+    width: 100px;
+    padding: 5px;
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border-radius: 5px;
+}
+
+.before-typewriting-text { 
+    margin-top: -30px;
+    display: flex;
+    flex-direction: row;
+    font-size: 2.8rem;
+    color: #fff;
+    margin-bottom: 0;
+}
+
+.typewriter-subtitle {
+    color: #fff;
+    margin-top: -20px;
+}
+
+
+.icon-container { 
+    
+    a {
+        color: #fff;
+        text-decoration: none;
+
+        &:hover {
+            color: $brand-color;
+        }
+    }
+    i {
+        margin-right: 15px;
+        margin-top: 5px;
+        font-size: 1.5rem;
+        padding: 10px;
+        border: 1.5px solid #fff;
+        border-radius: 50%;
+        &:hover {
+            border-color: $brand-color;
+        }
+    }
+}
+
+
+/* Begin About section */
+
+
+.index-about { 
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+.less-padding-top {
+    padding-top: 2rem;
+}
+
+.info-icons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    i {
+        padding-right: 15px;
+    }
+}
