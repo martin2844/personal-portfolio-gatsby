@@ -1,5 +1,9 @@
 $brand-color: #663399;
 
+.brand {
+    color: $brand-color;
+}
+
 .index-main {
     background: url('../images/main-banner-gradient.jpg');
     height: calc(100vh - 100px);
@@ -34,17 +38,17 @@ $brand-color: #663399;
 }
 
 .before-typewriting-text { 
-    margin-top: -30px;
+    
     display: flex;
     flex-direction: row;
     font-size: 2.8rem;
     color: #fff;
-    margin-bottom: 0;
+    
 }
 
 .typewriter-subtitle {
     color: #fff;
-    margin-top: -20px;
+    
 }
 
 
@@ -86,6 +90,16 @@ $brand-color: #663399;
     padding-top: 2rem;
 }
 
+.info-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.first-two, .last-two {
+    margin: 10px;
+}
+
 .info-icons {
     display: flex;
     flex-direction: row;
@@ -93,4 +107,23 @@ $brand-color: #663399;
     i {
         padding-right: 15px;
     }
+}
+
+.resume-button-container {
+    margin-top: 30px;
+}
+
+.index-left-about {
+    padding: 20px 40px;
+    margin-left: 50px;
+    width: 50%
+}
+
+.resume-button {
+    padding: 10px 30px;
+    border-radius: 20px;
+    background: rgb(102,51,153);
+    background: linear-gradient(94deg, rgba(102,51,153,1) 19%, rgba(182,144,221,1) 100%);
+    color: #fff;
+    text-decoration: none;
 }

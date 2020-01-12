@@ -5,10 +5,11 @@ $navbar-text: #fff;
 .navbar-container {
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
     height: 100px;
     color: $navbar-text;
-
+ 
 }
 
 .navbar-brand-container {

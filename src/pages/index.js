@@ -1,8 +1,9 @@
-import React from "react"
+import React, { useState } from "react"
 import Layout from '../layout/Layout';
 import './Index.styles.scss';
-
+import { graphql, useStaticQuery }  from 'gatsby';
 import Typewriter from 'typewriter-effect'; 
+import Img from "gatsby-image"
 
 
 
@@ -10,8 +11,42 @@ import Typewriter from 'typewriter-effect';
 
 const Index = () => { 
 
-   function revealData(){
-       console.log('test')
+   const images = useStaticQuery(graphql`
+   query {
+        allFile(sort: {fields: [name], order: ASC}) {
+          edges {
+            node {
+              childImageSharp {
+                fixed(width: 500) {
+                    ...GatsbyImageSharpFixed
+                    originalName
+                }
+              }
+              
+            }
+          }
+        }
+      }
+    `)
+      let aboutMeSrc = images.allFile.edges.filter((image) => {
+          return image.node.childImageSharp.fixed.originalName === 'about-me.png'
+      })
+
+      let aboutMe = aboutMeSrc[0].node.childImageSharp.fixed
+      console.log(aboutMe)
+    
+
+   const [phone, setPhone] = useState('phone: click to reveal');
+   const [mail, setMail] = useState('email: click to reveal');
+
+   function revealData(params){
+       if (params === 'phone') {
+           setPhone('+54 9 11 4415 6102');
+       }
+
+       if (params === 'mail') {
+        setMail('martinchammah@gmail.com');
+    }
    }
 
 
@@ -22,8 +57,8 @@ const Index = () => {
             <div className='index-left'>
             <div className='hello-text'>Hello !</div>
             <div className='before-typewriting-text'>
-                <p>I am&nbsp;</p>    
-                <p className='typewriting-text'>
+                <div>I am&nbsp;</div>    
+                <div className='typewriting-text'>
                     <Typewriter
                         options={{
                             strings: [' a Web Developer', ' an Architect', ' a Mechanic'],
@@ -31,17 +66,17 @@ const Index = () => {
                             loop: true,
                         }}
                     />
-                </p>
+                </div>
             </div>
             <p className='typewriter-subtitle'>I am a FullStack web developer based in Buenos Aires, Argentina. 
             I feel most comfortable working on the Mern Stack, Mongo-Express-React-Node, but I have no issues expanding my knowledge base to fit your needs.</p>
             
             <div className='icon-container'>
-          <a href='https://github.com/martin2844'><i class="fab fa-github"/></a>
-          <a href='https://dev.to/martin2844'> <i class="fab fa-dev"></i></a>
-          <a href='https://twitter.com/codigoMate'>  <i class="fab fa-twitter"></i></a>
-          <a href='https://www.linkedin.com/in/chammah/'>  <i class="fab fa-linkedin-in"></i></a>
-          <a href='mailto:martinchammah@gmail.com'>  <i class="fas fa-envelope"/></a>
+          <a href='https://github.com/martin2844'><i className="fab fa-github"/></a>
+          <a href='https://dev.to/martin2844'> <i className="fab fa-dev"></i></a>
+          <a href='https://twitter.com/codigoMate'>  <i className="fab fa-twitter"></i></a>
+          <a href='https://www.linkedin.com/in/chammah/'>  <i className="fab fa-linkedin-in"></i></a>
+          <a href='mailto:martinchammah@gmail.com'>  <i className="fas fa-envelope"/></a>
 
 
             </div>
@@ -53,40 +88,53 @@ const Index = () => {
             </div>
             </section>
             <section id='about' className='index-about'>    
-            <div className='index-left'>
+            <div className='index-left-about'>
+                <Img fixed={aboutMe}/>
 
             </div>
             <div className='index-right less-padding-top'>
             <h2>About me</h2>
             <hr/>
-            <h1>I am a professional web developer with years of experience.</h1>
+            <h1 className='brand'>I am a professional web developer with years of experience.</h1>
             <p>I have an Architect degree from the University of Buenos Aires, and I am a self-taught FullStack developer, so I know my way around design and programming.</p>
             <p>Currently I work at an e-commerce company, which mainly develops wordpress sites, so we do a lot of {`<?php`}, but my unconditional love goes to Javascript, and its frameworks. Node for the backend, and React&Gatsby for the front-end </p>
             <p>Nowadays, I am studying for a technician degree in programming, so I can further develop my skills as a programmer.</p>
             <div className='info-container'>
             <div className='first-two'>
                 <div className='info-icons'>
-                <i class="fas fa-map-marker-alt"></i>
+                <i className="fas fa-map-marker-alt"></i>
                  <p>Buenos Aires, Argentina</p>
 
                 </div>
                 <div className='info-icons'>
-                <i class="fas fa-phone"></i>
-                 <p onClick={ () => revealData() }>click to reveal</p>
+                <i className="fas fa-phone"></i>
+                 <p onClick={ () => revealData('phone') }>{phone}</p>
 
                 </div>
            
             </div>
             <div className='last-two'>
+            <div className='info-icons'>
+            <i className="far fa-calendar-alt"></i>
+                 <p>Age: 27</p>
+
+                </div>
+                <div className='info-icons'>
+                <i className="fas fa-envelope"></i>
+                 <p onClick={ () => revealData('mail') }>{mail}</p>
+
+                </div>
             
             </div>              
                 
             </div>
-
-
+            <div className='resume-button-container'>
+            <a className='resume-button' href='https://martin2844.github.io/gatsby-cv-site/pdf/MartinChammah_en.pdf'> Download Resumé
+            </a>
+            </div>
             </div>
 
-
+         
 
 
             </section>
