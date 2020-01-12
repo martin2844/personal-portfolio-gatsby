@@ -1,30 +1,40 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'gatsby';
+import { Location } from '@reach/router'
 
 import './Navbar.styles.scss';
 
 const Navbar = () => {
+
+    const [thePath, setThePath] = useState('/');
+    console.log(thePath)
+    
     return (
-        <section className='navbar-container'>
-            
-            
+        <section className={thePath === '/' ? 'navbar-container' : 'navbar-container dark'}>
+    
             <div className='navbar-brand-container'>
-            <h2>MARTINCHAMMAH</h2>
+            <h2>MARTIN</h2>
+            <h2 className='bold'>CHAMMAH</h2>
             </div>
 
             <div className='navbar-links-container'>
             
             <Link to='/'>Home</Link>
             <a href='#about'>About me</a>
-            <a href='#about'>Service</a>
-            <Link to='/'>Portfolio</Link>
-            <Link to='/'>Blog</Link>
+            <a href='#services'>Services</a>
+            <Link to='/portfolio'>Portfolio</Link>
+            <Link to='/blog'>Blog</Link>
             <Link to='/'>Uses</Link>
             <Link to='/'>Contact</Link>
             <a href='https://martin2844.github.io/gatsby-cv-site/'>Resumé</a>
             </div>
 
-
+            <Location>
+      {({ location }) => {
+        setThePath(location.pathname)
+      }}
+    </Location>
+            
         
         </section>
     )

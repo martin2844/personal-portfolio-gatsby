@@ -12,11 +12,19 @@ $navbar-text: #fff;
  
 }
 
+.dark {
+    background-color: $brand-color;
+}
+
 .navbar-brand-container {
     font-size: 1.5rem;
+    font-family: 'Open Sans';
     padding-left: 6rem;
     letter-spacing: -1px;
+    display: flex;
+    flex-direction: row;
 }
+
 
 .navbar-links-container {
     padding-right: 6rem;

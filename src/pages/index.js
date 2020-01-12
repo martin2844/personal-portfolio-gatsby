@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 import Layout from '../layout/Layout';
 import './Index.styles.scss';
+import ServiceCard from '../components/service-card';
 import { graphql, useStaticQuery }  from 'gatsby';
 import Typewriter from 'typewriter-effect'; 
 import Img from "gatsby-image"
@@ -10,6 +11,7 @@ import Img from "gatsby-image"
 
 
 const Index = () => { 
+    
 
    const images = useStaticQuery(graphql`
    query {
@@ -135,14 +137,27 @@ const Index = () => {
             </div>
 
          
+            
+        
+            </section>
+            <section className='index-services' id='services'>
+             <h4 className='what-button'>What I do</h4>
+             <h1>My Services</h1>
+             <div className='card-container'>
+             <ServiceCard icon='fas fa-laptop-code' title='Web Development' desc=
+             'I develop awesome performance-driven websites. I can suggest a technology for you to use, depending on what you are looking for. My go to choices are Gatsby for static content-driven sites, and React for Dynamic sites.'
+             />
+               <ServiceCard icon='fas fa-database' title='Custom APIs and DBs' desc=
+             'I can create a custom API for your all of your data needs, it can have a user friendly admin panel and can be connected to a database. For backend APIs I prefer NodeJs, and for databases, mongoDB. But if you prefer we can go a more traditional route, with SQL.'
+             />
+              <ServiceCard icon='fas fa-chart-line' title='SEO Optimization' desc=
+             'Ranking high on search engines is a must for your application or website. No worries, I got you covered. Be it a web app, or a static sites, I can make your site gain online presence via the latest SEO tools.'
+             />
+            
+             </div>       
 
 
             </section>
-
-
-
-
-
             <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossOrigin="anonymous"/>
         </Layout>
     )

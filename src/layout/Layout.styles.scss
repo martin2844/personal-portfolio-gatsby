@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans|Quattrocento+Sans:400,700&display=swap');
+$brand-color: #663399;
 
 body { 
     font-family: 'Open Sans', sans-serif;
@@ -17,5 +18,18 @@ body {
     h2 {
         font-size: 1.5rem;
     }
+}
+
+
+.main-section {
+    padding: 4rem 6rem;
+}
+
+.section-blog-title {
+    padding: 4rem 6rem;
+    height: 30vh;
+    background-image: linear-gradient(178deg, #663399 70%, #FFF calc(70% + 2px));
+    color: #fff;
+   
 }
 

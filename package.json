@@ -23,6 +23,7 @@
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+    "react-scroll-up-button": "^1.6.4",
     "typewriter-effect": "^2.12.2"
   },
   "devDependencies": {
