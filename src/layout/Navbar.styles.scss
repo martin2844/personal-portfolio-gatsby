@@ -45,3 +45,19 @@ $navbar-text: #fff;
         }
     }
 }
+
+
+
+// media queries
+
+@media  (max-width: 1400px) {
+
+    .navbar-brand-container {
+        padding-left: 5rem;
+    }
+
+    .navbar-links-container {
+        padding-right: 5rem;
+    }
+ 
+}

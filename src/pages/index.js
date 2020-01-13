@@ -20,8 +20,8 @@ const Index = () => {
           edges {
             node {
               childImageSharp {
-                fixed(width: 500) {
-                    ...GatsbyImageSharpFixed
+                fluid(maxWidth: 500) {
+                    ...GatsbyImageSharpFluid
                     originalName
                 }
               }
@@ -32,10 +32,10 @@ const Index = () => {
       }
     `)
       let aboutMeSrc = images.allFile.edges.filter((image) => {
-          return image.node.childImageSharp.fixed.originalName === 'about-me.png'
+          return image.node.childImageSharp.fluid.originalName === 'about-me.png'
       })
       console.log(images)
-      let aboutMe = aboutMeSrc[0].node.childImageSharp.fixed
+      let aboutMe = aboutMeSrc[0].node.childImageSharp.fluid
       console.log(aboutMe)
     
 
@@ -92,10 +92,10 @@ const Index = () => {
             </section>
             <section id='about' className='index-about'>    
             <div className='index-left-about'>
-                <Img fixed={aboutMe}/>
+                <Img className='about-image' fluid={aboutMe}/>
 
             </div>
-            <div className='index-right less-padding-top'>
+            <div className='index-right-about less-padding-top'>
             <h2>About me</h2>
             <hr/>
             <h1 className='brand'>I am a professional web developer with years of experience.</h1>

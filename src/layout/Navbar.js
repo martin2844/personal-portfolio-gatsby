@@ -20,8 +20,8 @@ const Navbar = () => {
             <div className='navbar-links-container'>
             
             <Link to='/'>Home</Link>
-            <a href='/#about'>About me</a>
-            <a href='/#services'>Services</a>
+            <Link to='/#about'>About me</Link>
+            <Link to='/#services'>Services</Link>
             <Link to='/portfolio'>Portfolio</Link>
             <Link to='/blog'>Blog</Link>
             <Link to='/uses'>Uses</Link>
