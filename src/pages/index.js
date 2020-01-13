@@ -10,12 +10,13 @@ import Img from "gatsby-image"
 
 
 
+
 const Index = () => { 
     
 
    const images = useStaticQuery(graphql`
    query {
-        allFile(sort: {fields: [name], order: ASC}) {
+        allFile(sort: {fields: [name], order: ASC}, filter: { sourceInstanceName: { eq: "images" } }) {
           edges {
             node {
               childImageSharp {
@@ -33,7 +34,7 @@ const Index = () => {
       let aboutMeSrc = images.allFile.edges.filter((image) => {
           return image.node.childImageSharp.fixed.originalName === 'about-me.png'
       })
-
+      console.log(images)
       let aboutMe = aboutMeSrc[0].node.childImageSharp.fixed
       console.log(aboutMe)
     

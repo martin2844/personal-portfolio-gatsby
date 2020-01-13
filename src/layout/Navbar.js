@@ -20,12 +20,12 @@ const Navbar = () => {
             <div className='navbar-links-container'>
             
             <Link to='/'>Home</Link>
-            <a href='#about'>About me</a>
-            <a href='#services'>Services</a>
+            <a href='/#about'>About me</a>
+            <a href='/#services'>Services</a>
             <Link to='/portfolio'>Portfolio</Link>
             <Link to='/blog'>Blog</Link>
-            <Link to='/'>Uses</Link>
-            <Link to='/'>Contact</Link>
+            <Link to='/uses'>Uses</Link>
+            <Link to='/contact'>Contact</Link>
             <a href='https://martin2844.github.io/gatsby-cv-site/'>Resumé</a>
             </div>
 
