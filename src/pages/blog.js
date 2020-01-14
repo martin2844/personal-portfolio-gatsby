@@ -1,6 +1,8 @@
 import React from 'react';
 import Layout from '../layout/Layout';
-import {Link, graphql, useStaticQuery} from 'gatsby'
+import {Link, graphql, useStaticQuery} from 'gatsby';
+
+import './stylesheets/blog.styles.scss';
 
 
 
@@ -17,6 +19,7 @@ query {
             title
             date
             sinopsis
+            tags
           }
           fields {
               slug
@@ -27,6 +30,8 @@ query {
   }
 `)
 
+console.log(postsQuery)
+
 const posts = postsQuery.allMarkdownRemark.edges.map((posts) => {
 
     return ( <ul>
@@ -34,8 +39,8 @@ const posts = postsQuery.allMarkdownRemark.edges.map((posts) => {
             <h1 className='post-title'>{posts.node.frontmatter.title}</h1> 
             <p className='post-date'>{posts.node.frontmatter.date}</p>
             </Link>
-            <p className='post-sinopsis'>{posts.node.frontmatter.sinopsis} </p><Link className='read-more' to={`/blog/${posts.node.fields.slug}`}>...Leer más</Link>
-            <hr/>
+            <div className='post-sinopsis'><p>{posts.node.frontmatter.sinopsis} </p><Link className='read-more' to={`/blog/${posts.node.fields.slug}`}>...Leer más</Link></div>
+            <hr align='left'/>
             </ul>
            
     )
@@ -49,7 +54,15 @@ const posts = postsQuery.allMarkdownRemark.edges.map((posts) => {
              <h1>Welcome to my Blog</h1>
              <p>Every now and then I like writting about certain things, that are interesting to me in the world of web development</p>
              </section>
-             {posts}
+             <section className='section-blog-posts'>
+                <div className='tags-section'>
+                   <h1>Search By tags</h1>
+                </div>
+                <div className='posts-section'>
+                   {posts}
+               </div>
+             </section>
+            
 
          </Layout>
      )

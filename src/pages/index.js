@@ -1,10 +1,10 @@
 import React, { useState } from "react"
 import Layout from '../layout/Layout';
-import './Index.styles.scss';
+import './stylesheets/Index.styles.scss';
 import ServiceCard from '../components/service-card';
 import { graphql, useStaticQuery }  from 'gatsby';
 import Typewriter from 'typewriter-effect'; 
-import Img from "gatsby-image"
+import Img from "gatsby-image";
 
 
 

@@ -4,6 +4,7 @@
 title: 'Deploy your MERN app to AWS'
 date: '20-12-2019'
 sinopsis: 'If you want to deploy a MERN app to AWS, and you have windows as your OS, this is for you.'
+tags: [AWS, deploy, React, MongoDB, Node, Express]
 
 
 
