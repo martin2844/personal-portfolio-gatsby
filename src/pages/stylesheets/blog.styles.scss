@@ -38,8 +38,16 @@ $brand-light: #C68EFF;
 
     }
 
+    .post-container {
+        background-color: #DCDCDC;
+        padding: 2rem;
+        display: flex;
+        flex-direction: row;
+    }
+
+
     .post-title {
-        margin-bottom: 0;
+        margin: 0;
     }
     .post-date {
         margin-top: 0;
@@ -52,9 +60,9 @@ $brand-light: #C68EFF;
     .post-sinopsis {
         margin-top: 0;
         display: flex;
-        flex-direction: row;
-        align-items: center;
-        width: 80%;
+        flex-direction: column;
+        align-items: flex-start;
+        width: 100%;
         p {
             padding-right: 10px;
         }

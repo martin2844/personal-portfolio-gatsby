@@ -30,17 +30,22 @@ query {
   }
 `)
 
-console.log(postsQuery)
+console.log(postsQuery.allMarkdownRemark.edges)
 
 const posts = postsQuery.allMarkdownRemark.edges.map((posts) => {
 
-    return ( <ul>
+    return ( <ul className='post-container'>
+            
+            <div className='post-container-img'></div>
+            <div className='post-container-text'>
+              
             <Link className='no-decor' to={`/blog/${posts.node.fields.slug}`}  >
             <h1 className='post-title'>{posts.node.frontmatter.title}</h1> 
             <p className='post-date'>{posts.node.frontmatter.date}</p>
             </Link>
             <div className='post-sinopsis'><p>{posts.node.frontmatter.sinopsis} </p><Link className='read-more' to={`/blog/${posts.node.fields.slug}`}>...Leer más</Link></div>
-            <hr align='left'/>
+
+            </div>
             </ul>
            
     )
