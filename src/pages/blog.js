@@ -1,6 +1,7 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import {Link, graphql, useStaticQuery} from 'gatsby';
+import Img from 'gatsby-image';
 
 import './stylesheets/blog.styles.scss';
 
@@ -46,13 +47,36 @@ query {
 `)
 
 // image query
-console.log(postsQuery.images)
+
+
+const postImages = postsQuery.images.edges
+let noImage = postImages.filter((image) => {
+  return image.node.childImageSharp.fluid.originalName === "no-image.png";
+})
 
 const posts = postsQuery.posts.edges.map((posts) => {
 
+  let theImageFilter = postImages.filter( (image) => {
+    let { originalName } = image.node.childImageSharp.fluid;
+    let slugMatchPNG = posts.node.fields.slug + '.png';
+    let slugMatchJPG = posts.node.fields.slug + '.jpg';
+    return originalName === (slugMatchPNG || slugMatchJPG);
+
+  })
+
+  let theImage
+  if (theImageFilter.length !== 0) {
+    theImage = theImageFilter[0].node.childImageSharp.fluid;
+  } else {
+    theImage = noImage[0].node.childImageSharp.fluid;
+  }
+
+ console.log(theImage);
+ 
     return ( <ul className='post-container'>
             
-            <div className='post-container-img'></div>
+            <div className='post-container-img'><Img fluid={theImage} /></div>
+
             <div className='post-container-text'>
               
             <Link className='no-decor' to={`/blog/${posts.node.fields.slug}`}  >
