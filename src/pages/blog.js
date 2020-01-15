@@ -9,10 +9,10 @@ import './stylesheets/blog.styles.scss';
 
 
 const Blog = () => {
-    
+
 const postsQuery = useStaticQuery(graphql`
 query {
-    allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date]}) {
+    posts: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date]}) {
       edges{
         node {
           frontmatter {
@@ -27,12 +27,28 @@ query {
         }
       }
     }
-  }
+    
+   images: allFile(sort: {fields: [name], order: ASC}, filter: { sourceInstanceName: { eq: "thumbs" } }) {
+      edges {
+        node {
+          childImageSharp {
+            fluid(maxWidth: 500) {
+              ...GatsbyImageSharpFluid
+              originalName
+            }
+          }
+        }
+      }
+    }
+
+    
+  } 
 `)
 
-console.log(postsQuery.allMarkdownRemark.edges)
+// image query
+console.log(postsQuery.images)
 
-const posts = postsQuery.allMarkdownRemark.edges.map((posts) => {
+const posts = postsQuery.posts.edges.map((posts) => {
 
     return ( <ul className='post-container'>
             
