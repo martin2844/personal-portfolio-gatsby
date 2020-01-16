@@ -115,12 +115,11 @@ const posts = thePosts.map((posts) => {
 const displayTags = filterTags.map((tag) => {
   let runTheFilter = (e) => {
     //filter the posts is working, must try and reset state before each time a tag is clicked
-    filterThePosts(postsQuery.posts.edges);
     let filterWord = e.target.getAttribute('name');
     // console.log(filterWord);
     let arrayFilter;
    if(thePosts) { //if thePosts exists, begin filter using tag which is filtered word.
-     arrayFilter = thePosts.filter((post) => {
+     arrayFilter = postsQuery.posts.edges.filter((post) => {
       console.log(filterWord)
     
       return post.node.frontmatter.tags.includes(filterWord); 
@@ -134,12 +133,15 @@ const displayTags = filterTags.map((tag) => {
   }
 
   return (
-    <div key={tag} name={tag} onClick={e => runTheFilter(e)} className='tag'>
-      {tag}
+    <div className='filter-tag' key={tag} name={tag} onClick={e => runTheFilter(e)}>
+     {tag}
     </div>
   )
 })
 
+const cleanTags = (e) => {
+  filterThePosts(postsQuery.posts.edges);
+}
 
 
 
@@ -153,6 +155,9 @@ const displayTags = filterTags.map((tag) => {
                 <div className='tags-section'>
                    <h1>Search By tags</h1>
                    {displayTags}
+                   <div className='filter-tag clean' onClick={e => cleanTags(e)}>
+                  Clean filters
+                  </div>
 
                 </div>
                 <div className='posts-section'>

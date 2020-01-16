@@ -47,8 +47,12 @@ $brand-light: #C68EFF;
     }
 
     .post-container-img {
-        width: 150px;
+        min-width: 125px;
         margin-right: 2rem;
+    }
+
+    .post-container-text {
+        max-width: 80%;
     }
 
 
@@ -85,4 +89,19 @@ $brand-light: #C68EFF;
         
     }
 
+    .filter-tag {
+        cursor: pointer;
+        background-color: $brand-light;
+        margin: 10px 0 10px;
+        width: 100px;
+        text-align: center;
+        padding: 2px;
+        border-radius: 10px;
+
+        
+    }
+
+
 }
+
+
