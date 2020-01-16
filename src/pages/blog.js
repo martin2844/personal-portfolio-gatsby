@@ -47,10 +47,9 @@ query {
 
 // use state to declare global filter tags.
 const [filterTags, setFilterTags] = useState([]);
-// use state to actually declare which filter to use
-const [myFilteredPosts, setMyFilteredPosts] = useState([]);
+
 // put all posts on state, filter with tags, via filterThePosts.
-const [thePosts, filterThePosts] = useState(postsQuery);
+const [thePosts, filterThePosts] = useState(postsQuery.posts.edges);
 
 // image query
 
@@ -63,7 +62,7 @@ let noImage = postImages.filter((image) => {
 })
 
 //Begin posts map
-const posts = thePosts.posts.edges.map((posts) => {
+const posts = thePosts.map((posts) => {
   // filter from image query which image belongs to which posts
   // the image name must match the slug of the post
   let theImageFilter = postImages.filter( (image) => {
@@ -115,23 +114,23 @@ const posts = thePosts.posts.edges.map((posts) => {
 
 const displayTags = filterTags.map((tag) => {
   let runTheFilter = (e) => {
+    //filter the posts is working, must try and reset state before each time a tag is clicked
+    filterThePosts(postsQuery.posts.edges);
     let filterWord = e.target.getAttribute('name');
     // console.log(filterWord);
-    let {edges} = thePosts.posts;
     let arrayFilter;
-   if(edges) { //if thePosts exists, begin filter using tag which is filtered word.
-     arrayFilter = edges.filter((post) => {
+   if(thePosts) { //if thePosts exists, begin filter using tag which is filtered word.
+     arrayFilter = thePosts.filter((post) => {
       console.log(filterWord)
-      //must do iffy
-      if(post.node.frontmatter.tags) {
-      post.node.frontmatter.tags.includes(filterWord) ? setMyFilteredPosts([...myFilteredPosts, post]) : console.log('test');
-      }
-      return console.log("return")
+    
+      return post.node.frontmatter.tags.includes(filterWord); 
+     
+
      })
    }
-   // currently working in console. Must somehow make the map of posts myFilteredPosts.
-   //Maybe adding a state that defines if a filter is active, so if a filter is active, thePosts = myFilteredPosts, else = to postqueries
-   console.log(myFilteredPosts);
+
+   console.log(arrayFilter);
+   filterThePosts(arrayFilter);
   }
 
   return (
