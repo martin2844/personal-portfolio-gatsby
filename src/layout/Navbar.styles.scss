@@ -24,6 +24,16 @@ $navbar-text: #fff;
     letter-spacing: -1px;
     display: flex;
     flex-direction: row;
+    color: #fff;
+    &:hover {
+        color: $brand-light;
+    }
+    a {
+        text-decoration: none;
+        color: #fff
+      
+    }
+
 }
 
 
@@ -60,4 +70,28 @@ $navbar-text: #fff;
         padding-right: 5rem;
     }
  
+}
+
+
+// media queries
+
+@media  (max-width: 1200px) {
+ 
+    .navbar-brand-container {
+        padding-left: 1rem;
+    }
+
+    .navbar-links-container {
+        padding-right: 1rem;
+    }
+
+}
+
+
+@media  (max-width: 1000px) {
+ 
+  .navbar-container {
+    //   display: none;
+  }
+
 }

@@ -1,18 +1,27 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { Location } from '@reach/router'
+import { slide as Menu } from 'react-burger-menu';
 
 import './Navbar.styles.scss';
+
+//integrate https://www.npmjs.com/package/react-burger-menu
 
 const Navbar = () => {
 
     const [thePath, setThePath] = useState('/');
     return (
         <section className={thePath === '/' ? 'navbar-container' : 'navbar-container dark'}>
-    
+                 <Menu>
+        <Link className="menu-item" to="/">Home</Link>
+        <Link className="menu-item" to="/#about">About</Link>
+        <Link className="menu-item" tp="/contact">Contact</Link>
+      </Menu>
             <div className='navbar-brand-container'>
+            <Link className='navbar-brand-container' to='/'>
             <h2>MARTIN</h2>
             <h2 className='bold'>CHAMMAH</h2>
+            </Link>
             </div>
 
             <div className='navbar-links-container'>
