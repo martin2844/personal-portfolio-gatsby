@@ -7,8 +7,6 @@ import './Navbar.styles.scss';
 const Navbar = () => {
 
     const [thePath, setThePath] = useState('/');
-    console.log(thePath)
-    
     return (
         <section className={thePath === '/' ? 'navbar-container' : 'navbar-container dark'}>
     

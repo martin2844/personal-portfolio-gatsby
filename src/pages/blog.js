@@ -10,12 +10,6 @@ import './stylesheets/blog.styles.scss';
 
 
 const Blog = () => {
-
-// use state to declare global filter tags. Once you click on a tag you should filter all posts.
-const [filterTags, setFilterTags] = useState([]);
-// put all posts on state, filter with tags, via filterThePosts.
-const [thePosts, filterThePosts] = useState([]);
-
 const postsQuery = useStaticQuery(graphql`
 query {
     posts: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date]}) {
@@ -51,6 +45,13 @@ query {
   } 
 `)
 
+// use state to declare global filter tags.
+const [filterTags, setFilterTags] = useState([]);
+// use state to actually declare which filter to use
+const [myFilteredPosts, setMyFilteredPosts] = useState([]);
+// put all posts on state, filter with tags, via filterThePosts.
+const [thePosts, filterThePosts] = useState(postsQuery);
+
 // image query
 
 //Extract images from queries
@@ -61,14 +62,8 @@ let noImage = postImages.filter((image) => {
   return image.node.childImageSharp.fluid.originalName === "no-image.png";
 })
 
-useEffect(() => {
-  filterThePosts(postsQuery);
-}, [thePosts]);
-
-
-
 //Begin posts map
-const posts = postsQuery.posts.edges.map((posts) => {
+const posts = thePosts.posts.edges.map((posts) => {
   // filter from image query which image belongs to which posts
   // the image name must match the slug of the post
   let theImageFilter = postImages.filter( (image) => {
@@ -93,13 +88,10 @@ const posts = postsQuery.posts.edges.map((posts) => {
   //iffy in case a post misses tags.
   if (tags) {
     tags.forEach((tag) => {
-      filterTags.indexOf(tag) === -1 ? setFilterTags([...filterTags, tag]) : console.log('tag allready exists');
+      filterTags.indexOf(tag) === -1 ? setFilterTags([...filterTags, tag]) : console.log('');
     })
   }
- 
-
-  console.log(filterTags);
- 
+  
     return ( <ul className='post-container'>
             
             <div className='post-container-img'><Link className='no-decor' to={`/blog/${posts.node.fields.slug}`}  ><Img fluid={theImage} /></Link></div>
@@ -124,13 +116,22 @@ const posts = postsQuery.posts.edges.map((posts) => {
 const displayTags = filterTags.map((tag) => {
   let runTheFilter = (e) => {
     let filterWord = e.target.getAttribute('name');
-    console.log(filterWord);
-   console.log(thePosts.posts);
-   if(thePosts.length) { //if thePosts exists, begin filter using tag which is filtered word.
-     thePosts.map((post) => {
-     return console.log(post);
+    // console.log(filterWord);
+    let {edges} = thePosts.posts;
+    let arrayFilter;
+   if(edges) { //if thePosts exists, begin filter using tag which is filtered word.
+     arrayFilter = edges.filter((post) => {
+      console.log(filterWord)
+      //must do iffy
+      if(post.node.frontmatter.tags) {
+      post.node.frontmatter.tags.includes(filterWord) ? setMyFilteredPosts([...myFilteredPosts, post]) : console.log('test');
+      }
+      return console.log("return")
      })
    }
+   // currently working in console. Must somehow make the map of posts myFilteredPosts.
+   //Maybe adding a state that defines if a filter is active, so if a filter is active, thePosts = myFilteredPosts, else = to postqueries
+   console.log(myFilteredPosts);
   }
 
   return (

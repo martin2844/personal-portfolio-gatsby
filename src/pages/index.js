@@ -34,9 +34,7 @@ const Index = () => {
       let aboutMeSrc = images.allFile.edges.filter((image) => {
           return image.node.childImageSharp.fluid.originalName === 'about-me.png'
       })
-      console.log(images)
-      let aboutMe = aboutMeSrc[0].node.childImageSharp.fluid
-      console.log(aboutMe)
+      let aboutMe = aboutMeSrc[0].node.childImageSharp.fluid;
     
 
    const [phone, setPhone] = useState('phone: click to reveal');
