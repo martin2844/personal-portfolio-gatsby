@@ -43,10 +43,12 @@ $brand-light: #C68EFF;
         padding: 2rem;
         display: flex;
         flex-direction: row;
+        align-items: center;
     }
 
     .post-container-img {
-        width: 100px;
+        width: 150px;
+        margin-right: 2rem;
     }
 
 

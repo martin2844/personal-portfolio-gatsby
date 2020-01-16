@@ -48,14 +48,18 @@ query {
 
 // image query
 
-
+//Extract images from queries
 const postImages = postsQuery.images.edges
+
+//What happens when there is no image. 
 let noImage = postImages.filter((image) => {
   return image.node.childImageSharp.fluid.originalName === "no-image.png";
 })
 
+//Begin posts map
 const posts = postsQuery.posts.edges.map((posts) => {
-
+  // filter from image query which image belongs to which posts
+  // the image name must match the slug of the post
   let theImageFilter = postImages.filter( (image) => {
     let { originalName } = image.node.childImageSharp.fluid;
     let slugMatchPNG = posts.node.fields.slug + '.png';
@@ -65,17 +69,18 @@ const posts = postsQuery.posts.edges.map((posts) => {
   })
 
   let theImage
+  // iffy because reading node from undefined crashes gatsby.
   if (theImageFilter.length !== 0) {
     theImage = theImageFilter[0].node.childImageSharp.fluid;
   } else {
     theImage = noImage[0].node.childImageSharp.fluid;
   }
 
- console.log(theImage);
+  console.log(posts.node.frontmatter.tags);
  
     return ( <ul className='post-container'>
             
-            <div className='post-container-img'><Img fluid={theImage} /></div>
+            <div className='post-container-img'><Link className='no-decor' to={`/blog/${posts.node.fields.slug}`}  ><Img fluid={theImage} /></Link></div>
 
             <div className='post-container-text'>
               
