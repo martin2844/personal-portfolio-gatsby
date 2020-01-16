@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import Layout from '../layout/Layout';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
@@ -10,6 +10,11 @@ import './stylesheets/blog.styles.scss';
 
 
 const Blog = () => {
+
+// use state to declare global filter tags. Once you click on a tag you should filter all posts.
+const [filterTags, setFilterTags] = useState([]);
+// put all posts on state, filter with tags, via filterThePosts.
+const [thePosts, filterThePosts] = useState([]);
 
 const postsQuery = useStaticQuery(graphql`
 query {
@@ -56,6 +61,12 @@ let noImage = postImages.filter((image) => {
   return image.node.childImageSharp.fluid.originalName === "no-image.png";
 })
 
+useEffect(() => {
+  filterThePosts(postsQuery);
+}, [thePosts]);
+
+
+
 //Begin posts map
 const posts = postsQuery.posts.edges.map((posts) => {
   // filter from image query which image belongs to which posts
@@ -76,7 +87,18 @@ const posts = postsQuery.posts.edges.map((posts) => {
     theImage = noImage[0].node.childImageSharp.fluid;
   }
 
-  console.log(posts.node.frontmatter.tags);
+  
+
+  let { tags } = posts.node.frontmatter;
+  //iffy in case a post misses tags.
+  if (tags) {
+    tags.forEach((tag) => {
+      filterTags.indexOf(tag) === -1 ? setFilterTags([...filterTags, tag]) : console.log('tag allready exists');
+    })
+  }
+ 
+
+  console.log(filterTags);
  
     return ( <ul className='post-container'>
             
@@ -95,7 +117,30 @@ const posts = postsQuery.posts.edges.map((posts) => {
            
     )
     
+});
+
+//begin tag map.
+
+const displayTags = filterTags.map((tag) => {
+  let runTheFilter = (e) => {
+    let filterWord = e.target.getAttribute('name');
+    console.log(filterWord);
+   console.log(thePosts.posts);
+   if(thePosts.length) { //if thePosts exists, begin filter using tag which is filtered word.
+     thePosts.map((post) => {
+     return console.log(post);
+     })
+   }
+  }
+
+  return (
+    <div key={tag} name={tag} onClick={e => runTheFilter(e)} className='tag'>
+      {tag}
+    </div>
+  )
 })
+
+
 
 
      return (
@@ -107,6 +152,8 @@ const posts = postsQuery.posts.edges.map((posts) => {
              <section className='section-blog-posts'>
                 <div className='tags-section'>
                    <h1>Search By tags</h1>
+                   {displayTags}
+
                 </div>
                 <div className='posts-section'>
                    {posts}
