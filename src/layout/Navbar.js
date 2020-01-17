@@ -14,7 +14,7 @@ const Navbar = (props) => {
     const [thePath, setThePath] = useState('/');
     let centerClass;
     
-    if(justbrand) {
+    if(justbrand === true) {
       centerClass = " center";
     } else {
       centerClass = "";
