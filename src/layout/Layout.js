@@ -37,7 +37,7 @@ function useWindowDimensions() {
     return (
         <div id="App">
             {width < 1200 ? <Sidebar pageWrapId={"page-wrap"} outerContainerId={"App"}/> : null}
-            {width > 1200 ? <Navbar/> : <Navbar justbrand={true} /> }
+            <Navbar justbrand={width > 1200 ? "" : true} /> 
             <div id="page-wrap">
             {props.children}
             </div>
