@@ -4,31 +4,34 @@ import ScrollUpButton from "react-scroll-up-button";
 import Sidebar from './sidebar';
 import './Layout.styles.scss';
 
-//gets window dimensions to conditionally render the burger menu
-function getWindowDimensions() {
-    const { innerWidth: width, innerHeight: height } = window;
-    return {
-      width,
-      height
-    };
-  }
-  
-  function useWindowDimensions() {
-    const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-  
-    useEffect(() => {
-      function handleResize() {
-        setWindowDimensions(getWindowDimensions());
-      }
-  
-      window.addEventListener('resize', handleResize);
-      return () => window.removeEventListener('resize', handleResize);
-    }, []);
-  
-    return windowDimensions;
-  }
+
 
 const Layout = (props) => {
+
+  //gets window dimensions to conditionally render the burger menu
+  const windowGlobal = typeof window !== 'undefined' && window
+function getWindowDimensions() {
+  const { innerWidth: width, innerHeight: height } = windowGlobal;
+  return {
+    width,
+    height
+  };
+}
+
+function useWindowDimensions() {
+  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
+
+  useEffect(() => {
+    function handleResize() {
+      setWindowDimensions(getWindowDimensions());
+    }
+
+    windowGlobal.addEventListener('resize', handleResize);
+    return () => windowGlobal.removeEventListener('resize', handleResize);
+  }, []);
+
+  return windowDimensions;
+}
     const { width } = useWindowDimensions();
 
     return (
