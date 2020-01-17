@@ -13,6 +13,11 @@ $navbar-text: #fff;
  
 }
 
+.center {
+    
+    justify-content: center;
+}
+
 .dark {
     background-color: $brand-color;
 }
@@ -35,6 +40,7 @@ $navbar-text: #fff;
     }
 
 }
+
 
 
 .navbar-links-container {
@@ -95,3 +101,7 @@ $navbar-text: #fff;
   }
 
 }
+
+
+
+

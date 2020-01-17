@@ -1,29 +1,34 @@
 import React, { useState } from 'react';
 import { Link } from 'gatsby';
 import { Location } from '@reach/router'
-import { slide as Menu } from 'react-burger-menu';
+
 
 import './Navbar.styles.scss';
 
+
 //integrate https://www.npmjs.com/package/react-burger-menu
 
-const Navbar = () => {
+const Navbar = (props) => {
+  let { justbrand } = props
 
     const [thePath, setThePath] = useState('/');
+    let centerClass;
+    
+    if(justbrand) {
+      centerClass = " center";
+    } else {
+      centerClass = "";
+    }
+
     return (
-        <section className={thePath === '/' ? 'navbar-container' : 'navbar-container dark'}>
-                 <Menu>
-        <Link className="menu-item" to="/">Home</Link>
-        <Link className="menu-item" to="/#about">About</Link>
-        <Link className="menu-item" tp="/contact">Contact</Link>
-      </Menu>
-            <div className='navbar-brand-container'>
+        <section className={thePath === '/' ? `navbar-container${centerClass}` : `navbar-container dark ${centerClass}`}>
+            <div className={justbrand ? 'navbar-brand-container' : 'navbar-brand-container'}>
             <Link className='navbar-brand-container' to='/'>
             <h2>MARTIN</h2>
             <h2 className='bold'>CHAMMAH</h2>
             </Link>
             </div>
-
+            { justbrand ? null :
             <div className='navbar-links-container'>
             
             <Link to='/'>Home</Link>
@@ -34,7 +39,9 @@ const Navbar = () => {
             <Link to='/uses'>Uses</Link>
             <Link to='/contact'>Contact</Link>
             <a href='https://martin2844.github.io/gatsby-cv-site/'>Resumé</a>
+        
             </div>
+              }
 
             <Location>
       {({ location }) => {
