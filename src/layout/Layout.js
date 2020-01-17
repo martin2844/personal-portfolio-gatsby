@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Navbar from './Navbar';
 import ScrollUpButton from "react-scroll-up-button";
-import Sidebar from './sidebar';
+import Sidebar from './Sidebar';
 import './Layout.styles.scss';
 
 
