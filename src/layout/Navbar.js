@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'gatsby';
 import { Location } from '@reach/router'
 
@@ -12,17 +12,22 @@ const Navbar = (props) => {
   let { justbrand } = props
 
     const [thePath, setThePath] = useState('/');
-    let centerClass;
+    const [theCenter, setTheCenter] = useState("");
     
-    if(justbrand === true) {
-      centerClass = " center";
-    } else {
-      centerClass = "";
-    }
+    useEffect(() => {
+
+      if(justbrand === true) {
+        setTheCenter(" center");
+      } else {
+        setTheCenter("");
+      }
+      
+    }, [justbrand]);
+    
 
     return (
-        <section className={thePath === '/' ? `navbar-container${centerClass}` : `navbar-container dark ${centerClass}`}>
-            <div className={justbrand ? 'navbar-brand-container' : 'navbar-brand-container'}>
+        <section className={thePath === '/' ? `navbar-container${theCenter}` : `navbar-container dark ${theCenter}`}>
+            <div className="navbar-brand-container">
             <Link className='navbar-brand-container' to='/'>
             <h2>MARTIN</h2>
             <h2 className='bold'>CHAMMAH</h2>
