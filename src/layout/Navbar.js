@@ -15,7 +15,7 @@ const Navbar = (props) => {
     const [theCenter, setTheCenter] = useState("");
     
     useEffect(() => {
-
+      // basically if width is less than 1200 it will add the center class to the navbar
       if(justbrand === true) {
         setTheCenter(" center");
       } else {
