@@ -1,0 +1,46 @@
+$brand-light: #C68EFF;
+
+.post-title-container {
+    h1 {
+        padding-top: 20px;
+        margin: 0 40px 0;
+        text-align: center;
+    }
+    p{
+        text-align: center;
+        font-style: italic;
+    }
+    height: 40vh;
+    background-image: linear-gradient(178deg, #663399 70%, #FFF calc(70% + 2px));
+    color: #fff;
+
+}
+
+.post-content-container {
+    padding: 0 6rem 2rem;
+}
+
+.goback {
+    padding: 4rem 6rem;
+    font-size: 1.2rem;
+    text-decoration: none;
+    &:hover {
+        color: $brand-light;
+    }
+}
+
+
+@media (max-width: 600px) {
+    .post-title-container {
+        height: 30vh;
+        h1 {
+            padding-top: 40px;
+            margin-top: -3px;
+        }
+    }
+
+    .post-content-container {
+        padding: 0 2rem 2rem;
+    }
+    
+}
