@@ -96,7 +96,7 @@ const Index = () => {
             <div className='index-right-about less-padding-top'>
             <h2>About me</h2>
             <hr/>
-            <h1 className='brand'>I am a professional web developer with years of experience.</h1>
+            <h1 className='brand about-sub'>I am a professional web developer with years of experience.</h1>
             <p>I have an Architect degree from the University of Buenos Aires, and I am a self-taught FullStack developer, so I know my way around design and programming.</p>
             <p>Currently I work at an e-commerce company, which mainly develops wordpress sites, so we do a lot of {`<?php`}, but my unconditional love goes to Javascript, and its frameworks. Node for the backend, and React&Gatsby for the front-end </p>
             <p>Nowadays, I am studying for a technician degree in programming, so I can further develop my skills as a programmer.</p>
