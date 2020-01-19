@@ -23,6 +23,14 @@ module.exports = {
     },
     
   },
+  {
+    resolve: `gatsby-source-filesystem`,
+    options: {
+      name: `uses`,
+      path: path.join(__dirname, `src`, `uses`),
+    },
+    
+  },
   `gatsby-plugin-sass`,
   `gatsby-plugin-sharp`,
   `gatsby-transformer-sharp`,

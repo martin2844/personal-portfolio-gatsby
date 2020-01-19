@@ -33,8 +33,13 @@ $navbar-text: #fff;
     &:hover {
         color: $brand-light;
     }
+    .navbar-link-container {
+        display: flex;
+        flex-direction: row;
+    }
     a {
         text-decoration: none;
+        padding-left: 0;
         color: #fff
       
     }

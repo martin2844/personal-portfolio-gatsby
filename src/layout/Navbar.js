@@ -28,7 +28,7 @@ const Navbar = (props) => {
     return (
         <section className={thePath === '/' ? `navbar-container${theCenter}` : `navbar-container dark ${theCenter}`}>
             <div className="navbar-brand-container">
-            <Link className='navbar-brand-container' to='/'>
+            <Link className='navbar-link-container' to='/'>
             <h2>MARTIN</h2>
             <h2 className='bold'>CHAMMAH</h2>
             </Link>

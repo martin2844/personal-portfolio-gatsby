@@ -1,13 +1,54 @@
 import React from 'react'; 
 import Layout from '../layout/Layout';
+import { graphql, useStaticQuery }  from 'gatsby';
+import Img from 'gatsby-image';
+import './stylesheets/uses.styles.scss';
 
 
 
 const Uses = () => {
+
+    const images = useStaticQuery(graphql`
+    query {
+         allFile(sort: {fields: [name], order: ASC}, filter: { sourceInstanceName: { eq: "uses" } }) {
+           edges {
+             node {
+               childImageSharp {
+                 fluid(maxWidth: 100) {
+                     ...GatsbyImageSharpFluid
+                     originalName
+                 }
+               }
+               
+             }
+           }
+         }
+       }
+     `)
+       console.log(images.allFile.edges);
+
+       const logoMap = images.allFile.edges.map((logo) => {
+           let src = logo.node.childImageSharp.fluid;
+           return (
+               <div className='logo-container' key={src.originalName}>
+               <Img  fluid={src} />
+               </div>
+           )    
+       })
+
+
     return (
         <Layout>
-            <section>
-                Uses
+            <section className='uses-title-section'>
+                <h1>What I use daily</h1>
+                <p>Welcome to my /uses, here is what I use daily for software & hardware</p>
+            </section>
+            <section className='uses-main-content'>
+                <div className='tech-box'>
+                    <h1>Dev's tech</h1>
+                    <p>Here is some of the tech I use! <br/> When it comes to developing, I love javascript and it's versatility, so it is what I mostly prefer. <br/> Of course I am not limited only to these.</p>
+                {logoMap} 
+                </div>
             </section>
         </Layout>
     )
