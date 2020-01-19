@@ -281,11 +281,14 @@ $brand-light: #C68EFF;
    
     //about section
     .index-about { 
+        min-height: 100vh;
         width: 100vw;
         flex-direction: column;
         align-items: center;
     }
-
+    .index-left-about {
+        display: none;
+    }
     .index-right-about {
         display: flex;
         flex-direction: column;
@@ -302,7 +305,7 @@ $brand-light: #C68EFF;
     }
 
     .index-left-about {
-      
+      display: none;
     }
 
     .about-sub {
