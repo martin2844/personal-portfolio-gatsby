@@ -23,7 +23,7 @@ $brand-light: #C68EFF;
     }
 
     .tags-section {
-        width: 20%;
+        max-width: 20%;
 
         // make tag section sticky maybe
     }
@@ -54,8 +54,6 @@ $brand-light: #C68EFF;
     .post-container-text {
         max-width: 80%;
     }
-
-
 
     .post-title {
         margin: 0;
@@ -105,6 +103,63 @@ $brand-light: #C68EFF;
       background-color: $brand-color;
       color: #fff;
     }
+
+
+}
+
+
+@media (max-width: 600px) {
+    .section-blog-title {
+        padding: 2rem 3rem;
+    }
+
+    .section-blog-posts { 
+        padding: 1rem 3rem;
+        flex-direction: column;
+        .tags-section {
+            max-width: 100%;
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            h1 {
+              width: 100%;
+              flex-basis: 100%;
+              text-align: center;
+            }
+            .filter-tag {
+                flex-basis: 25%;
+                margin: 10px;
+            }
+            .filter-tag.clean {
+                flex-basis: 100%;
+                max-width: 50%;
+            }
+        
+    }
+
+
+    }
+
+    .section-blog-posts {
+
+        .posts-section {
+            width: 100%;     
+            margin-left: 0;     
+        }
+    
+        .post-container {
+            padding: 1rem;
+        }
+
+        .post-container-img {
+            min-width: 100px;
+            margin-right: 1rem;
+        }
+
+    }
+
+   
 
 
 }

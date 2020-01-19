@@ -148,7 +148,7 @@ $brand-light: #C68EFF;
 // services section
 
 .index-services {
-    background-color: #FAFAFA;
+    background-color: red;
     height: 100vh;
     display: flex;
     flex-direction: column;
@@ -281,7 +281,6 @@ $brand-light: #C68EFF;
    
     //about section
     .index-about { 
-        height: 100vh;
         width: 100vw;
         flex-direction: column;
         align-items: center;
