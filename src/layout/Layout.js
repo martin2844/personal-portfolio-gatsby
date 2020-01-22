@@ -3,6 +3,7 @@ import Navbar from './Navbar';
 import ScrollUpButton from "react-scroll-up-button";
 import Sidebar from './Sidebar';
 import './Layout.styles.scss';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -36,6 +37,15 @@ function useWindowDimensions() {
 
     return (
         <div id="App">
+            <Helmet>
+                <title>Martin Chammah | Full Stack Dev.</title>
+                <meta charset="UTF-8"/>
+                <meta name="description" content="I am a Full Stack developer from aAgentina, I can build your apps"/>
+                <meta name="keywords" content="Full Stack Developer, programming, javascript argentina, apps, react, gatsby argentina" />
+                <meta name="author" content="Martin Chammah"/>
+                <link rel="canonical" href="https://martinchammah.dev/" />
+                <meta name="robots" content="index, follow" />
+          </Helmet>
             {width < 1200 ? <Sidebar pageWrapId={"page-wrap"} outerContainerId={"App"}/> : null}
             <Navbar justbrand={width > 1200 ? "" : true} /> 
             <div id="page-wrap">

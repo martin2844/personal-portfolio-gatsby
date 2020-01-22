@@ -1,7 +1,7 @@
 import React from 'react';
 import Layout from '../layout/Layout';
 import {graphql, Link} from 'gatsby';
-
+import { Helmet } from 'react-helmet';
 import './BlogTemplate.styles.scss';
 
 
@@ -20,6 +20,7 @@ query (
       frontmatter {
         title
         date
+        sinopsis
       }
       html
     }
@@ -33,6 +34,13 @@ const BlogTemplate = (props) => {
 
  return (
     <Layout>
+            <Helmet>
+                <title>Martin Chammah | {props.data.markdownRemark.frontmatter.title}</title>
+                <meta charset="UTF-8"/>
+                <meta name="description" content={props.data.markdownRemark.frontmatter.sinopsis}/>
+                <meta name="author" content="Martin Chammah"/>
+              
+          </Helmet>
         <section className='post-main'>
         <div className='post-title-container'>
         <h1 className='post-title-content'>{props.data.markdownRemark.frontmatter.title}</h1>

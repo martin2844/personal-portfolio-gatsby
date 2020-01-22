@@ -11,6 +11,7 @@ import Img from "gatsby-image";
 
 
 
+
 const Index = () => { 
     
 
@@ -53,6 +54,7 @@ const Index = () => {
 
     return (
         <Layout>
+          
             
             <section className='index-main'>
             <div className='index-left'>

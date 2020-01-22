@@ -3,6 +3,7 @@ import Layout from '../layout/Layout';
 import { graphql, useStaticQuery }  from 'gatsby';
 import Img from 'gatsby-image';
 import './stylesheets/uses.styles.scss';
+import { Helmet } from 'react-helmet';
 
 
 
@@ -39,6 +40,13 @@ const Uses = () => {
 
     return (
         <Layout>
+           <Helmet>
+                <title>Martin Chammah | Uses</title>
+                <meta charset="UTF-8"/>
+                <meta name="description" content="This is what I use everyday, my tech, my hardware"/>
+                <meta name="author" content="Martin Chammah"/>
+              
+          </Helmet>
             <section className='uses-title-section'>
                 <h1>What I use daily</h1>
                 <p>Welcome to my /uses, here is what I use daily for software & hardware</p>

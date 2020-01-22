@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Layout from '../layout/Layout';
 import {Link, graphql, useStaticQuery} from 'gatsby';
 import Img from 'gatsby-image';
-
+import { Helmet } from 'react-helmet';
 import './stylesheets/blog.styles.scss';
 
 
@@ -147,6 +147,13 @@ const cleanTags = (e) => {
 
      return (
          <Layout>
+                 <Helmet>
+                <title>Martin Chammah | Blog</title>
+                <meta charset="UTF-8"/>
+                <meta name="description" content="My Blog, I write about stuff related to tech and web dev"/>
+                <meta name="author" content="Martin Chammah"/>
+              
+          </Helmet>
              <section className='section-blog-title'>
              <h1>Welcome to my Blog</h1>
              <p>Every now and then I like writting about certain things, that are interesting to me in the world of web development</p>

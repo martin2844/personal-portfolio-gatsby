@@ -1,12 +1,19 @@
 import React from 'react'; 
 import Layout from '../layout/Layout';
 import './stylesheets/contact.styles.scss';
-
+import { Helmet } from 'react-helmet';
 
 
 const Contact = () => {
     return (
         <Layout>
+                <Helmet>
+                <title>Martin Chammah | Contact me</title>
+                <meta charset="UTF-8"/>
+                <meta name="description" content="Contact me, leave me a message, reach out to me on social media"/>
+                <meta name="author" content="Martin Chammah"/>
+              
+          </Helmet>
             <section className='contact-title-section'>
                 <h1>Contact me!</h1>
                 <p>Leave a message, get in touch, inquiries, doubts, anything!</p>

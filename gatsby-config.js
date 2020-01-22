@@ -6,6 +6,11 @@
 const path = require('path');
 
 module.exports = {
+  siteMetadata: {
+    title: 'Martin Chammah | FullStack Developer',
+    author: 'Martin Chammah',
+    siteUrl: `https://www.martinchammah.dev`
+  },
   pathPrefix: '/personal-portfolio-gatsby',
   plugins: [{
     resolve: `gatsby-source-filesystem`,
@@ -63,7 +68,7 @@ module.exports = {
         }
       ]
     }
-},
+}
 
 ]
 }
