@@ -17,6 +17,7 @@
   flex-direction: row;
   flex-wrap: wrap;
   background-color: #DCDCDC;
+  padding: 1rem;
   align-items: center;
   justify-content: center;
   -webkit-box-shadow: 7px 9px 8px -5px rgba(207,207,207,1);
@@ -41,4 +42,17 @@
     max-width: 100px;
     flex-basis: 10%;
     margin: 20px;
+}
+
+@media  (max-width: 600px) {
+ 
+  .logo-container {
+    flex-basis: 20%;
+  }
+  
+  .uses-main-content {
+    padding: 0 2rem;
+   
+}
+
 }
