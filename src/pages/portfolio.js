@@ -16,7 +16,7 @@ const Portfolio = () => {
     const theCards = portfolioInfo.map((item) => {
         let {techs, desc, livelink, codelink, title} = item
         return (
-            <PortfolioCard techs={techs} desc={desc} livelink={livelink} codelink={codelink} title={title} />
+            <PortfolioCard key={title} techs={techs} desc={desc} livelink={livelink} codelink={codelink} title={title} />
         )
     })
 

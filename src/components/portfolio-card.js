@@ -1,7 +1,7 @@
 import React from 'react';
 import Img from 'gatsby-image';
 import { graphql, useStaticQuery }  from 'gatsby';
-
+import './portfolio-card.styles.scss';
 
 
 
@@ -31,16 +31,8 @@ const PortfolioCard = ({techs, desc, title, livelink, codelink}) => {
 
     const filteredImages = theImages.filter((image) => {
         // image string contains the original name of the image
-        let imageString = image.node.childImageSharp.fluid.originalName;
-        //change original name to something that the tech array has.
-        switch (imageString) {
-            case "1js.png":
-                imageString = "js"
-                break;
-            default:
-                break;
-        }
-
+        let originalString = image.node.childImageSharp.fluid.originalName
+        let imageString = originalString.slice(1, originalString.length-4);
         // with index of we can check if its inside the tech array, if its > -1 its inside image array, 
         // and then return it
         return techs.indexOf(imageString) > -1;
@@ -48,6 +40,16 @@ const PortfolioCard = ({techs, desc, title, livelink, codelink}) => {
     
     // console.log to check if filtered image returns correct images.
     console.log(filteredImages)
+
+    const techMap = filteredImages.map((tech) => {
+      let imgSrc =  tech.node.childImageSharp.fluid;
+      let alt = tech.node.childImageSharp.fluid.originalName
+        return (
+            <div key={alt}>
+            <Img className="portfolio-tech" fluid={imgSrc} alt={alt} />
+            </div>
+        )
+    })
 
     
 
@@ -58,7 +60,7 @@ const PortfolioCard = ({techs, desc, title, livelink, codelink}) => {
             </div>
             <div className="portfolio-description">
                  <div className="portfolio-icon-containers">
-
+                {techMap}
                  </div>
                  <div className="portfolio-title-container">
                     <h1>{title}</h1>
@@ -69,14 +71,17 @@ const PortfolioCard = ({techs, desc, title, livelink, codelink}) => {
                  <div className="porfolio-button-container">
                      <div className="portfolio-button">
                         <hr className="color-line" />
+                        <div className="text-icon-wrapper">
                         <i className="fas fa-globe-americas"/>
                        {livelink ? <a href={livelink}> Check it live</a> : <p className="sorry">Sorry no live link</p> } 
+                       </div>
                      </div>
                      <div className="portfolio-button">
                         <hr className="color-line" />
+                        <div className="text-icon-wrapper">
                         <i className="fab fa-github"/>
                         {codelink ? <a href={codelink}> Check the code </a> : <p className="sorry">Sorry code not available</p> } 
-                        
+                        </div>
                      </div>
 
                  </div>
