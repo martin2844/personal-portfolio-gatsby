@@ -26,6 +26,29 @@ const PortfolioCard = ({techs, desc, title, livelink, codelink}) => {
         }
         `)
 
+    console.log(images.uses.edges);
+    let theImages = images.uses.edges;
+
+    const filteredImages = theImages.filter((image) => {
+        // image string contains the original name of the image
+        let imageString = image.node.childImageSharp.fluid.originalName;
+        //change original name to something that the tech array has.
+        switch (imageString) {
+            case "1js.png":
+                imageString = "js"
+                break;
+            default:
+                break;
+        }
+
+        // with index of we can check if its inside the tech array, if its > -1 its inside image array, 
+        // and then return it
+        return techs.indexOf(imageString) > -1;
+    })
+    
+    // console.log to check if filtered image returns correct images.
+    console.log(filteredImages)
+
     
 
     return (
