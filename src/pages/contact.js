@@ -22,7 +22,7 @@ const Contact = () => {
             <div className='form-container'>
                    <form className='contact-form' name="contact" method="POST" data-netlify="true" action="/success">
                        <input type="hidden" name="form-name" value="contact"/>
-                       <div><input type="text" name="nombre" placeholder='Name*' />
+                       <div className="top-inputs"><input type="text" name="nombre" placeholder='Name*' />
                        <input type="email" name="email" placeholder='Email*' />
                        </div>
                        <label htmlFor="2textarea" for="mensaje">Leave me a message:</label>

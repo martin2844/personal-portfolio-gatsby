@@ -4,19 +4,49 @@ import './stylesheets/portfolio.styles.scss';
 import { Helmet } from 'react-helmet';
 import PortfolioCard from '../components/portfolio-card';
 import { portfolioInfo } from '../components/portfolio-content';
-
+import { graphql, useStaticQuery }  from 'gatsby';
 
 
 
 
 const Portfolio = () => {
 
-    console.log(portfolioInfo);
+    
+
+    
+    const images = useStaticQuery(graphql`
+    query {
+        screens: allFile(sort: {fields: [name], order: ASC}, filter: { sourceInstanceName: { eq: "portfolio" } }) {
+           edges {
+             node {
+               childImageSharp {
+                 fluid(maxWidth: 400) {
+                     ...GatsbyImageSharpFluid
+                     originalName
+                 }
+               }
+               
+             }
+           }
+         }
+       }
+     `)
 
     const theCards = portfolioInfo.map((item) => {
-        let {techs, desc, livelink, codelink, title} = item
+        let {techs, desc, livelink, codelink, title, desc2, tags} = item
+        let fileString = title.toLowerCase() + ".jpg";
+        console.log(fileString)
+        let imageSrc = images.screens.edges.filter((image) => {
+          console.log(image.node.childImageSharp.fluid.originalName)
+            return image.node.childImageSharp.fluid.originalName === fileString;
+        })
+        let screenCap = imageSrc[0].node.childImageSharp.fluid;
+
         return (
-            <PortfolioCard key={title} techs={techs} desc={desc} livelink={livelink} codelink={codelink} title={title} />
+            <PortfolioCard screenCap={screenCap} key={title} techs={techs} desc={desc} desc2={desc2}
+             livelink={livelink} codelink={codelink} title={title}
+             tags={tags}
+             />
         )
     })
 
@@ -34,7 +64,6 @@ const Portfolio = () => {
                 <p>Some of the work I have done over time.</p>
          </section>
          <section className="portfolio-main-section">
-         Under construction
             {theCards}
          </section>
         

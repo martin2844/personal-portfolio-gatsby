@@ -5,7 +5,7 @@ import './portfolio-card.styles.scss';
 
 
 
-const PortfolioCard = ({techs, desc, title, livelink, codelink}) => {
+const PortfolioCard = ({techs, desc, title, livelink, codelink, screenCap, desc2, tags}) => {
 
     
     const images = useStaticQuery(graphql`
@@ -56,7 +56,7 @@ const PortfolioCard = ({techs, desc, title, livelink, codelink}) => {
     return (
         <div className="portfolio-container">
             <div className="image-container">
-
+            <Img className="screen-cap" fluid={screenCap} alt={title} />
             </div>
             <div className="portfolio-description">
                  <div className="portfolio-icon-containers">
@@ -67,20 +67,22 @@ const PortfolioCard = ({techs, desc, title, livelink, codelink}) => {
                  </div>
                  <div className="portfolio-desc-container">
                     <p>{desc}</p>
+                    <p>{desc2}</p>
                  </div>
                  <div className="porfolio-button-container">
                      <div className="portfolio-button">
                         <hr className="color-line" />
                         <div className="text-icon-wrapper">
                         <i className="fas fa-globe-americas"/>
-                       {livelink ? <a href={livelink}> Check it live</a> : <p className="sorry">Sorry no live link</p> } 
+                       {livelink ? <a href={livelink}> Check it live</a> : <p className="sorry">Sorry N/A</p> } 
                        </div>
                      </div>
+                     
                      <div className="portfolio-button">
                         <hr className="color-line" />
                         <div className="text-icon-wrapper">
                         <i className="fab fa-github"/>
-                        {codelink ? <a href={codelink}> Check the code </a> : <p className="sorry">Sorry code not available</p> } 
+                        {codelink ? <a href={codelink}> Github </a> : <p className="sorry">Sorry N/A</p> } 
                         </div>
                      </div>
 

@@ -112,6 +112,9 @@ $brand-light: #C68EFF;
 @media (max-width: 600px) {
     .section-blog-title {
         padding: 2rem 3rem;
+        h1 {
+            margin-top: -20px;
+        }
     }
 
     .section-blog-posts { 
@@ -163,4 +166,14 @@ $brand-light: #C68EFF;
    
 
 
+}
+
+
+@media (max-width: 350px) {
+    .section-blog-title {
+        
+        p {
+            font-size: .9rem;
+        }
+    }
 }
