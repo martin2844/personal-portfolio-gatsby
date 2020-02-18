@@ -10,3 +10,29 @@
     padding: 0 6rem;
     
 }
+
+@media screen and (max-width: 600px) {
+
+    .portfolio-main-section {
+        padding: 0 2rem;
+        
+    }
+    
+}
+
+
+
+@media screen and (max-width: 350px) {
+
+    .portfolio-main-section {
+        padding: 0 1rem;
+        
+    }
+
+    .portfolio-main-title {
+        padding: 2rem 1rem;
+      
+    }
+    
+    
+}

@@ -113,3 +113,50 @@
     border-radius: 20px;
     margin: 20px 40px 20px 20px;
 }
+
+
+@media screen and (max-width: 1000px) {
+    .screen-cap {
+        min-width: 300px;
+    }
+}
+
+@media screen and (max-width: 800px) {
+
+    .portfolio-container {
+
+        flex-direction: column;
+        justify-content: space-evenly;
+        align-items: center;
+  
+        padding: 20px;
+        margin-bottom: 60px;
+    }
+
+    .portfolio-description {
+       align-items: center;
+       text-align: center;
+    }
+    
+}
+
+
+@media screen and (max-width: 400px) {
+
+    .screen-cap {
+        min-width: 150px;
+    }
+
+}
+
+@media screen and (max-width: 350px) {
+
+    .portfolio-desc-container {
+        p {
+            font-size: 0.9rem;
+            padding: 10px;
+        }
+    }
+    
+
+}
