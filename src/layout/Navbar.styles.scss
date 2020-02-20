@@ -100,6 +100,15 @@ $navbar-text: #fff;
 
 
 @media  (max-width: 1000px) {
+
+    .navbar-container {
+    
+        justify-content: center;
+    }
+
+    .navbar-links-container {
+        display: none;
+    }
  
  
 

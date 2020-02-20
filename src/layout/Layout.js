@@ -1,39 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import Navbar from './Navbar';
 import ScrollUpButton from "react-scroll-up-button";
-import Sidebar from './Sidebar';
 import './Layout.styles.scss';
 import { Helmet } from 'react-helmet';
-
+import Burger from './Burger';
 
 
 const Layout = (props) => {
 
-  //gets window dimensions to conditionally render the burger menu
-  const windowGlobal = typeof window !== 'undefined' && window
-function getWindowDimensions() {
-  const { innerWidth: width, innerHeight: height } = windowGlobal;
-  return {
-    width,
-    height
-  };
-}
-
-function useWindowDimensions() {
-  const [windowDimensions, setWindowDimensions] = useState(getWindowDimensions());
-
-  useEffect(() => {
-    function handleResize() {
-      setWindowDimensions(getWindowDimensions());
-    }
-
-    windowGlobal.addEventListener('resize', handleResize);
-    return () => windowGlobal.removeEventListener('resize', handleResize);
-  }, []);
-
-  return windowDimensions;
-}
-    const { width } = useWindowDimensions();
 
     return (
         <div id="App">
@@ -46,8 +20,8 @@ function useWindowDimensions() {
                 <link rel="canonical" href="https://martinchammah.dev/" />
                 <meta name="robots" content="index, follow" />
           </Helmet>
-            {width < 1200 ? <Sidebar pageWrapId={"page-wrap"} outerContainerId={"App"}/> : null}
-            <Navbar justbrand={width > 1200 ? "" : true} /> 
+            <Burger/>
+            <Navbar /> 
             <div id="page-wrap">
             {props.children}
             </div>
