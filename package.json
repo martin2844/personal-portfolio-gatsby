@@ -27,7 +27,6 @@
     "gatsby-transformer-sharp": "^2.3.12",
     "node-sass": "^4.13.0",
     "react": "^16.12.0",
-    "react-burger-menu": "^2.6.13",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",
     "react-scroll-up-button": "^1.6.4",

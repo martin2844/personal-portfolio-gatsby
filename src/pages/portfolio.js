@@ -35,7 +35,7 @@ const Portfolio = () => {
     const theCards = portfolioInfo.map((item) => {
         let {techs, desc, livelink, codelink, title, desc2, tags} = item
         let fileString = title.toLowerCase() + ".jpg";
-        console.log(fileString)
+        console.log(images);
         let imageSrc = images.screens.edges.filter((image) => {
           console.log(image.node.childImageSharp.fluid.originalName)
             return image.node.childImageSharp.fluid.originalName === fileString;

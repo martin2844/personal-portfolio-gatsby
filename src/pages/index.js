@@ -36,7 +36,6 @@ const Index = () => {
           return image.node.childImageSharp.fluid.originalName === 'about-me.png'
       })
       let aboutMe = aboutMeSrc[0].node.childImageSharp.fluid;
-    
 
    const [phone, setPhone] = useState('phone: click to reveal');
    const [mail, setMail] = useState('email: click to reveal');
@@ -51,11 +50,12 @@ const Index = () => {
     }
    }
 
+ 
 
     return (
         <Layout>
-          
-            
+                
+                
             <section className='index-main'>
             <div className='index-left'>
             <div className='hello-text'>Hello !</div>
@@ -89,7 +89,10 @@ const Index = () => {
             <div className='index-right'>
 
             </div>
+            
             </section>
+         
+
             <section id='about' className='index-about'>    
             <div className='index-left-about'>
                 <Img className='about-image' fluid={aboutMe}/>

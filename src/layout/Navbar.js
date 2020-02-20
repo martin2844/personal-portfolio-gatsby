@@ -22,7 +22,7 @@ const Navbar = () => {
         scrollY >= 101 ? setNavBarClass("navbar-container short animated slideInDown") : setNavBarClass("navbar-container");
 
 
-    }, [])
+    }, [scrollY]);
     
     console.log(scrollY)
 
