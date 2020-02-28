@@ -32,7 +32,10 @@ const PortfolioCard = ({techs, desc, title, livelink, codelink, screenCap, desc2
     const filteredImages = theImages.filter((image) => {
         // image string contains the original name of the image
         let originalString = image.node.childImageSharp.fluid.originalName
-        let imageString = originalString.slice(1, originalString.length-4);
+        let withNoDigits = originalString.replace(/[0-9]/g, '');
+        console.log(withNoDigits);
+        let imageString = withNoDigits.slice(0, withNoDigits.length - 4);
+        console.log(imageString);
         // with index of we can check if its inside the tech array, if its > -1 its inside image array, 
         // and then return it
         return techs.indexOf(imageString) > -1;
