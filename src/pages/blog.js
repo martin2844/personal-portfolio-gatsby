@@ -12,7 +12,7 @@ import './stylesheets/blog.styles.scss';
 const Blog = () => {
 const postsQuery = useStaticQuery(graphql`
 query {
-    posts: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date]}) {
+    posts: allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date]}) {
       edges{
         node {
           frontmatter {
