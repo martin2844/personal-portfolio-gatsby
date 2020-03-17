@@ -12,7 +12,7 @@ import './stylesheets/blog.styles.scss';
 const Blog = () => {
 const postsQuery = useStaticQuery(graphql`
 query {
-    posts: allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date]}) {
+    posts: allMarkdownRemark(sort: { order: DESC, fields: [frontmatter___date]}) {
       edges{
         node {
           frontmatter {
@@ -50,6 +50,7 @@ const [filterTags, setFilterTags] = useState([]);
 
 // put all posts on state, filter with tags, via filterThePosts.
 const [thePosts, filterThePosts] = useState(postsQuery.posts.edges);
+console.log(thePosts);
 
 // image query
 
