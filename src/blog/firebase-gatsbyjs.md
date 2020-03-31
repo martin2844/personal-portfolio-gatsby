@@ -160,7 +160,7 @@ import {AuthContext} from '../config/context';
       let realUser = useContext(AuthContext);
       // if realUser exists, but only if it exists, 
       if(realUser) {
-          currentUser = test.currentUser;
+          currentUser = realUser.currentUser;
       }
 
 ```

@@ -44,7 +44,7 @@ query {
     
   } 
 `)
-
+console.log(postsQuery);
 // use state to declare global filter tags.
 const [filterTags, setFilterTags] = useState([]);
 
