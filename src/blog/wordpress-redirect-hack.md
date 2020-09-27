@@ -2,7 +2,7 @@
 title: 'Wordpress redirect hack'
 date: '2020-03-10'
 sinopsis: 'A wordpress site I was building was hacked, I lost a full day cleaning it up'
-tags: [wordpress, hack, infected]
+tags: [Wordpress, hack, infected]
 
 
 

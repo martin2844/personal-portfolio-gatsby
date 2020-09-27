@@ -4,7 +4,7 @@
 title: 'The problems of gatsby and firebase'
 date: '2020-03-29'
 sinopsis: "So I thought about doing a Gatsby Blog that allows readers to comment, kind of basic and easy to do with, lets say wordpress. But that would be easy"
-tags: [GatsbyJs, Firebase]
+tags: [Gatsby, Firebase]
 
 ---
 

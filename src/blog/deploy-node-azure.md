@@ -4,7 +4,7 @@
 title: 'Deploy nodeJS app to Azure VPS'
 date: '2020-09-27'
 sinopsis: 'Step by Step deploying a nodejs app to azure.'
-tags: [deploy, nodejs, azure]
+tags: [deploy, NodeJs, azure]
 
 
 

@@ -4,7 +4,7 @@
 title: 'Wordpress Google Cloud'
 date: '2020-04-02'
 sinopsis: "Deploy a wordpress site with a VM on google cloud compute for free! check it out here"
-tags: [wordpress, deploy, google, LAMP]
+tags: [Wordpress, deploy, google, LAMP]
 
 ---
 
