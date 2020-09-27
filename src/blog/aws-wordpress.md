@@ -4,7 +4,7 @@
 title: 'Deploy wordpress to AWS - easy'
 date: '2019-12-20'
 sinopsis: 'I guide you step by step on how to deploy a wordpress site to aws'
-tags: [AWS, deploy, wordpress]
+tags: [AWS, deploy, Wordpress]
 
 
 

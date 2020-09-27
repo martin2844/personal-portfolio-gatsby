@@ -4,7 +4,7 @@
 title: 'Faduense, My first FullStack MERN app'
 date: '2020-03-17'
 sinopsis: "I dont feel really comfortable putting this specific project code as public, but I'll show you what I did"
-tags: [React, MongoDB, NodeJS, AWS]
+tags: [React, MongoDB, NodeJs, AWS]
 
 ---
 

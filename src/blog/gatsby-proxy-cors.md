@@ -4,7 +4,7 @@
 title: 'Gatsby and Node-Express Cors Issues'
 date: '2020-07-18'
 sinopsis: "So, I've been having issues with cors integrating gatsby to a local node express SV. This is how we solve it."
-tags: [React, Gatsby, NodeJS, Express]
+tags: [React, Gatsby, NodeJs, Express]
 
 ---
 
