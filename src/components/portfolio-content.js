@@ -1,4 +1,14 @@
 export const portfolioInfo = [
+    {   
+        title: "dame1",
+        techs: ["nodejs","js"],
+        desc: "A JSON Person generator featuring a NodeJS backend, and a simple HTML front end. A quick fullstack project idea",
+        desc2: "The idea of this fun project is that, even though its small, it shows the implementation of key concepts such as: NodeJS and express Routing, REST API endpoints, query params, deployment and NGINX configuration in a AZURE VPS, domain DNS handling, Bootstrap implementation, async await, between other things",
+        tags: ["REST", "FullStack"],
+        livelink: "https://dame1.ar",
+        codelink: "https://github.com/martin2844/argentine-person-generator"
+
+    },
 
     {   
         title: "Faduense",
