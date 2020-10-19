@@ -68,7 +68,7 @@ Now cd into your directory, in my case `cd argentine-person-generator`
 And install all the modules, by `sudo npm install`  
 
 Now, my node application is built on express. And it runs on port 9000. Usually we are told to run it on port 5000. 
-To test if our app is ok, we are going to add a port rule setting to Azure, in order to let people access our port 5000, or 9000 on my case.
+To test if our app is ok, we are going to add a port rule setting to Azure, in order to let people access our port 5000, or 9000 on my case. We also might need to add the exception to our vps firewall @ `sudo ufw allow 9000`.
 
 Go to Azure networking:     
 ![html](./images/azure-net.png) 
