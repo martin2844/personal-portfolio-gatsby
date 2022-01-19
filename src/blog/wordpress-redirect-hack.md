@@ -1,15 +1,11 @@
 ---
-title: 'Wordpress redirect hack'
-date: '2020-03-10'
-sinopsis: 'A wordpress site I was building was hacked, I lost a full day cleaning it up'
+
+title: "Wordpress redirect hack"
+date: "2020-03-10"
+sinopsis: "A wordpress site I was building was hacked, I lost a full day cleaning it up"
 tags: [Wordpress, hack, infected]
+---# So you've been hacked
 
-
-
----
-
-
-# So you've been hacked
 ## Wordpress redirect hack
 
 Testing out a website we were building for a client, suddenly, the website starts redireting to spam websites, like lottery scam pages and whatnot.
@@ -23,7 +19,6 @@ The hack was injecting a div, with a script, just above the main wrapper
 
 
 ```
-
 
 And that is just the begining. Almost 50 infected wordpress core files, injecting stuff. What a blast...
 
@@ -39,15 +34,15 @@ Stuff like this, into a Wordpress logging class:
  * @version        2.0.0
  * @package        WooCommerce/Classes
  */
- ```
+```
 
- This was injected into you name it, plugins, theme files, wordpress core files... Amazing. So what now?
- Let's try to remove it manually and hope the site does not break.
- Certain plugins can help remove malicious files, Wordpress Defender, only for core files, is really good. You can pay the pro version for plugins and software
- 
- The infection also reached the uploads folder, 
- example: wp-content/uploads/2020/02/blogking.php,
- and also this as well:
+This was injected into you name it, plugins, theme files, wordpress core files... Amazing. So what now?
+Let's try to remove it manually and hope the site does not break.
+Certain plugins can help remove malicious files, Wordpress Defender, only for core files, is really good. You can pay the pro version for plugins and software
+
+The infection also reached the uploads folder,
+example: wp-content/uploads/2020/02/blogking.php,
+and also this as well:
 
 ![html](./images/wordpress-hacks.jpg)
 
@@ -62,10 +57,4 @@ Finally after removing the blocks, the problem was solved.
 3. My child theme was also infected, so I had to clean up those php files.
 4. Also, some plugins were infected, I just deleted those via FTP and re-installed them.
 
-So, it was not the end of the world, but I did loose a day, where I almost had a little heart attack when I thought I lost the whole website! 
-
-
- 
- 
-
-
+So, it was not the end of the world, but I did loose a day, where I almost had a little heart attack when I thought I lost the whole website!

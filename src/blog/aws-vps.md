@@ -1,33 +1,24 @@
 ---
 
-
-title: 'Deploy your MERN app to AWS'
-date: '2019-12-20'
-sinopsis: 'If you want to deploy a MERN app to AWS, and you have windows as your OS, this is for you.'
+title: "Deploy your MERN app to AWS"
+date: "2019-12-20"
+sinopsis: "If you want to deploy a MERN app to AWS, and you have windows as your OS, this is for you."
 tags: [AWS, deploy, React, MongoDB, NodeJs, Express]
-
-
-
----
-
-
-
-# Setup - AWS EC2 instance.
-
-
-
+---# Setup - AWS EC2 instance.
 
 ### Launch the instance
+
 1. Create new EC2 instance in desired cluster location
-2. Select Ubuntu Server 16.04 LTS (HVM), SSD Volume Type  - free tier to start.
+2. Select Ubuntu Server 16.04 LTS (HVM), SSD Volume Type - free tier to start.
 3. Click review and launch
 4. Select create new key pair, and choose a desired name. I will put AWS-WORDPRESS
 5. Download KeyPair
 6. LAUNCH INSTANCE
 
 ### SSH using Putty
+
 1. Download Putty and Puttygen.
-2. Open Putty gen and open the new key pair downloaded. 
+2. Open Putty gen and open the new key pair downloaded.
    1. Save as SSH RSA, private key.
 3. Open Putty.
    1. ON putty, your Host Name will be ubuntu@'yourPublicDNS' port will be 22.
@@ -39,12 +30,13 @@ tags: [AWS, deploy, React, MongoDB, NodeJs, Express]
 
 ### Inside the EC2 Instance. Once connected
 
-Now, the following I did following this amazing tutorial/article written by Jason Watmore: 
+Now, the following I did following this amazing tutorial/article written by Jason Watmore:
 https://jasonwatmore.com/post/2019/11/18/react-nodejs-on-aws-how-to-deploy-a-mern-stack-app-to-amazon-ec2
 
 So thank you Jason.
 
 Basically you run a curl command which will setup everything for us:
+
 ```
 The below command executes a script to automatically setup and configure a production ready MERN Stack web server on Ubuntu that includes Node.js, MongoDB, PM2, NGINX and UFW.
 
@@ -73,4 +65,4 @@ So I just had to git clone my-repo-from-git and that was that, of course, once c
 
 Once that was done, I cd into client, and did a yarn build for my react front end.
 
-Now comes the nicest part, configuring NGINX ! 
+Now comes the nicest part, configuring NGINX !
