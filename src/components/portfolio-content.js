@@ -1,5 +1,16 @@
 export const portfolioInfo = [
    {
+      title: "Small Car App",
+      techs: ["nestjs", "svelte", "docker", "sqlite"],
+      desc:
+         "Just a quick idea, thrown over in a weekend. A rest api done in nestjs with svelte as a view engine. The idea was to have a SQlite database with information about the cars I owned, including pictures.",
+      desc2:
+         "I wanted to do a small app but also test svelte as a view engine and sqlite as a db. The app isn't that great, but its dockerized, has swagger-docs and it helped me grasp some svelte concepts.",
+      tags: ["REST", "FullStack"],
+      livelink: "https://autos.martinchammah.dev",
+      codelink: "https://github.com/martin2844/my-cars",
+   },
+   {
       title: "dame1",
       techs: ["nodejs", "js"],
       desc:
@@ -10,7 +21,6 @@ export const portfolioInfo = [
       livelink: "https://dame1.ar",
       codelink: "https://github.com/martin2844/argentine-person-generator",
    },
-
    {
       title: "Faduense",
       techs: ["nextjs", "nodejs", "mongodb", "js", "ts"],
